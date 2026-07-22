@@ -18,7 +18,7 @@ description:
 
 button:"View Projects",
 
-image:"/images/data-bg.jpg"
+image:`${import.meta.env.BASE_URL}images/banner-etl.png`
 
 },
 
@@ -31,7 +31,7 @@ description:
 
 button:"Explore Solution",
 
-image:"/images/cloud-bg.jpg"
+image:`${import.meta.env.BASE_URL}images/banner2.png`
 
 },
 
@@ -42,7 +42,6 @@ title:"Digital Experience Platform",
 description:
 "Adobe Experience Manager Website",
 
-button:"Case Study",
 
 image:"/images/aem-bg.jpg"
 
@@ -113,6 +112,8 @@ transition={{
 duration:0.8
 }}
 
+
+
 className="
 absolute
 inset-0
@@ -129,15 +130,18 @@ backgroundImage:
 
 >
 
+//樣式，左暗右亮蒙層
 
 <div
 className="
 absolute
 inset-0
-bg-black/50
+bg-gradient-to-r
+from-slate-950/90
+via-slate-900/50
+to-transparent
 "
 />
-
 
 
 <div
