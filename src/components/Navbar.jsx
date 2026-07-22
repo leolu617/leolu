@@ -11,27 +11,25 @@ function Navbar() {
 
   const navigate = useNavigate();
 
-
   const dropdownRef = useRef(null);
 
 
+  const [scrolled,setScrolled] = useState(false);
 
-  const [scrolled, setScrolled] = useState(false);
-
-
-  const [projectOpen, setProjectOpen] = useState(false);
+  const [projectOpen,setProjectOpen] = useState(false);
 
 
 
 
 
+  // =========================
+  // Navigation + Scroll Top
+  // =========================
 
-  // Home Button
-
-  function goHome(){
+  function navigateTop(path){
 
 
-    navigate("/");
+    navigate(path);
 
 
     window.scrollTo({
@@ -43,6 +41,8 @@ function Navbar() {
     });
 
 
+    setProjectOpen(false);
+
   }
 
 
@@ -53,28 +53,16 @@ function Navbar() {
   useEffect(()=>{
 
 
-
     function handleScroll(){
 
 
-      if(window.scrollY > 50){
-
-        setScrolled(true);
-
-      }
-
-      else{
-
-        setScrolled(false);
-
-      }
+      setScrolled(
+        window.scrollY > 50
+      );
 
 
-
-      // 滾動時關閉 Dropdown
-
+      // Scroll close dropdown
       setProjectOpen(false);
-
 
     }
 
@@ -83,7 +71,6 @@ function Navbar() {
 
 
     function handleClickOutside(e){
-
 
 
       if(
@@ -97,7 +84,6 @@ function Navbar() {
         setProjectOpen(false);
 
       }
-
 
     }
 
@@ -115,7 +101,6 @@ function Navbar() {
       "mousedown",
       handleClickOutside
     );
-
 
 
 
@@ -138,7 +123,6 @@ function Navbar() {
     };
 
 
-
   },[]);
 
 
@@ -148,7 +132,7 @@ function Navbar() {
 
 
 
-  return (
+return (
 
 
 <nav
@@ -179,7 +163,6 @@ scrolled
 >
 
 
-
 <div
 
 className="
@@ -204,6 +187,7 @@ p-4
 
 
 
+
 {/* Logo */}
 
 
@@ -211,19 +195,13 @@ p-4
 
 to="/"
 
-onClick={()=>{
+onClick={()=>navigateTop("/")}
 
-window.scrollTo({
-
-top:0,
-
-behavior:"smooth"
-
-});
-
-}}
-
-className="flex items-center gap-3"
+className="
+flex
+items-center
+gap-3
+"
 
 >
 
@@ -232,7 +210,11 @@ className="flex items-center gap-3"
 
 src={`${import.meta.env.BASE_URL}images/logo.png`}
 
-className="h-12 w-12 object-contain"
+className="
+h-12
+w-12
+object-contain
+"
 
 alt="Leo Lu"
 
@@ -250,10 +232,6 @@ font-extrabold
 
 tracking-[0.25em]
 
-transition-colors
-
-duration-500
-
 
 ${
 scrolled
@@ -270,7 +248,6 @@ scrolled
 Leo Lu
 
 </span>
-
 
 
 </Link>
@@ -304,12 +281,13 @@ space-x-6
 
 
 
+
 {/* Home */}
 
 
 <button
 
-onClick={goHome}
+onClick={()=>navigateTop("/")}
 
 className={
 
@@ -317,11 +295,11 @@ scrolled
 
 ?
 
-"text-white transition"
+"text-white"
 
 :
 
-"text-slate-900 transition"
+"text-slate-900"
 
 }
 
@@ -339,9 +317,12 @@ Home
 
 
 
-<Link
+{/* About */}
 
-to="/about"
+
+<button
+
+onClick={()=>navigateTop("/about")}
 
 className={
 
@@ -349,11 +330,11 @@ scrolled
 
 ?
 
-"text-white transition"
+"text-white"
 
 :
 
-"text-slate-900 transition"
+"text-slate-900"
 
 }
 
@@ -361,7 +342,7 @@ scrolled
 
 About
 
-</Link>
+</button>
 
 
 
@@ -371,7 +352,7 @@ About
 
 
 
-{/* Projects Dropdown */}
+{/* Projects */}
 
 
 
@@ -384,11 +365,10 @@ className="relative"
 >
 
 
+
 <button
 
-
 onClick={()=>setProjectOpen(!projectOpen)}
-
 
 className={`
 
@@ -397,8 +377,6 @@ flex
 items-center
 
 gap-1
-
-relative
 
 
 ${
@@ -409,74 +387,30 @@ scrolled
 "text-slate-900"
 }
 
-`}
+`
 
+}
 
 >
 
-
 Projects
-
 
 
 <ChevronDown
 
 size={16}
 
-className={`
+className={
 
-transition-transform
-
-duration-300
-
-
-${
 projectOpen
 ?
-"rotate-180"
+"rotate-180 transition"
 :
-""
+"transition"
+
 }
 
-`}
-
 />
-
-
-
-
-
-<span
-
-className={`
-
-absolute
-
-left-0
-
-right-0
-
--bottom-3
-
-h-[2px]
-
-bg-blue-400
-
-transition-all
-
-
-${
-projectOpen
-?
-"opacity-100 scale-x-100"
-:
-"opacity-0 scale-x-0"
-}
-
-`}
-
-/>
-
 
 
 </button>
@@ -487,12 +421,10 @@ projectOpen
 
 
 
-{/* Dropdown */}
-
-
 {
 
 projectOpen &&
+
 
 <div
 
@@ -508,30 +440,30 @@ w-64
 
 rounded-xl
 
-overflow-hidden
-
 shadow-xl
-
-border
-
-border-white/10
 
 bg-white
 
+overflow-hidden
+
 "
 
 >
 
 
-<Link
+<button
 
-to="/projects/data-integration-platform"
-
-onClick={()=>setProjectOpen(false)}
+onClick={()=>navigateTop(
+"/projects/data-integration-platform"
+)}
 
 className="
 
 block
+
+w-full
+
+text-left
 
 px-5
 
@@ -543,32 +475,31 @@ hover:bg-blue-50
 
 hover:text-blue-600
 
-transition
-
 "
 
 >
-
 
 Enterprise Data Platform
 
-
-</Link>
-
+</button>
 
 
 
 
 
-<Link
+<button
 
-to="/projects/aem"
-
-onClick={()=>setProjectOpen(false)}
+onClick={()=>navigateTop(
+"/projects/data-driven-cms"
+)}
 
 className="
 
 block
+
+w-full
+
+text-left
 
 px-5
 
@@ -580,49 +511,13 @@ hover:bg-blue-50
 
 hover:text-blue-600
 
-transition
-
 "
 
 >
 
-Digital Experience Platform
+Data Driven CMS
 
-</Link>
-
-
-
-
-
-<Link
-
-to="/projects/bi"
-
-onClick={()=>setProjectOpen(false)}
-
-className="
-
-block
-
-px-5
-
-py-3
-
-text-slate-800
-
-hover:bg-blue-50
-
-hover:text-blue-600
-
-transition
-
-"
-
->
-
-BI Analytics Solution
-
-</Link>
+</button>
 
 
 
@@ -643,9 +538,12 @@ BI Analytics Solution
 
 
 
-<Link
+{/* Skills */}
 
-to="/skills"
+
+<button
+
+onClick={()=>navigateTop("/skills")}
 
 className={
 
@@ -653,11 +551,11 @@ scrolled
 
 ?
 
-"text-white transition"
+"text-white"
 
 :
 
-"text-slate-900 transition"
+"text-slate-900"
 
 }
 
@@ -665,15 +563,22 @@ scrolled
 
 Skills
 
-</Link>
+</button>
 
 
 
 
 
-<Link
 
-to="/blogs"
+
+
+
+{/* Blogs */}
+
+
+<button
+
+onClick={()=>navigateTop("/blogs")}
 
 className={
 
@@ -681,11 +586,11 @@ scrolled
 
 ?
 
-"text-white transition"
+"text-white"
 
 :
 
-"text-slate-900 transition"
+"text-slate-900"
 
 }
 
@@ -693,15 +598,22 @@ scrolled
 
 Blogs
 
-</Link>
+</button>
 
 
 
 
 
-<Link
 
-to="/contact"
+
+
+
+{/* Contact */}
+
+
+<button
+
+onClick={()=>navigateTop("/contact")}
 
 className={
 
@@ -709,11 +621,11 @@ scrolled
 
 ?
 
-"text-white transition"
+"text-white"
 
 :
 
-"text-slate-900 transition"
+"text-slate-900"
 
 }
 
@@ -721,8 +633,7 @@ scrolled
 
 Contact
 
-</Link>
-
+</button>
 
 
 
@@ -742,6 +653,7 @@ Contact
 
 
 }
+
 
 
 export default Navbar;

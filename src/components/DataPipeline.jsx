@@ -5,7 +5,8 @@ Database,
 Layers,
 BarChart3,
 Server,
-ArrowDown
+ArrowUp,
+ChartBar
 } from "lucide-react";
 
 
@@ -19,21 +20,20 @@ from "framer-motion";
 function DataPipeline(){
 
 
-
 const nodes=[
 
 
 {
 title:"Source System",
 desc:"Enterprise Applications",
-icon:<Server/>
+icon:<ChartBar />
 },
 
 
 {
 title:"Database",
 desc:"Oracle / MySQL",
-icon:<Database/>
+icon:<ChartBar />
 },
 
 
@@ -90,7 +90,6 @@ px-6
 
 
 {/* Header */}
-
 
 <motion.div
 
@@ -151,7 +150,7 @@ mt-4
 
 >
 
-Enterprise Data Pipeline
+Career Journey
 
 </h2>
 
@@ -182,107 +181,8 @@ Transforming raw enterprise data into actionable business insights.
 
 
 
-{/* Metrics */}
-
-
-<div
-
-className="
-grid
-md:grid-cols-3
-gap-6
-mt-16
-"
-
->
-
-
-{
-
-
-[
-{
-value:"2M+",
-label:"Records / Day"
-},
-
-{
-value:"99.9%",
-label:"Pipeline Reliability"
-},
-
-{
-value:"24/7",
-label:"Enterprise Processing"
-}
-
-].map(item=>(
-
-
-<div
-
-className="
-bg-white/10
-border
-border-white/10
-rounded-2xl
-p-6
-text-center
-"
-
->
-
-
-<h3
-
-className="
-text-4xl
-font-bold
-text-cyan-300
-"
-
->
-
-{item.value}
-
-</h3>
-
-
-<p
-
-className="
-mt-3
-text-slate-300
-"
-
->
-
-{item.label}
-
-</p>
-
-
-</div>
-
-
-))
-
-
-}
-
-
-
-</div>
-
-
-
-
-
-
-
-
-
 {/* Pipeline */}
+
 
 
 <div
@@ -293,6 +193,7 @@ relative
 "
 
 >
+
 
 
 
@@ -310,6 +211,7 @@ key={node.title}
 
 
 {/* Node */}
+
 
 
 <motion.div
@@ -386,7 +288,20 @@ shadow-[0_0_30px_rgba(34,211,238,0.25)]
 
 >
 
-{node.icon}
+
+
+
+{
+React.cloneElement(
+node.icon,
+{
+size:40
+}
+)
+}
+
+
+
 
 </div>
 
@@ -439,25 +354,34 @@ mt-2
 
 {/* Connection */}
 
-
 {
 
 index !== nodes.length-1 &&
 
+
 <div
 
+
 className="
+
 relative
+
 h-24
+
 ml-10
+
 border-l
+
 border-cyan-400/30
+
 "
+
 
 >
 
 
-{/* Moving Data */}
+{/* Moving Data Bottom -> Top */}
+
 
 
 <motion.div
@@ -465,9 +389,10 @@ border-cyan-400/30
 
 animate={{
 
-y:[0,70]
+y:[0,-70]
 
 }}
+
 
 
 transition={{
@@ -486,9 +411,9 @@ className="
 
 absolute
 
-left-[-5px]
+left-[-7px]
 
-top-0
+bottom-0
 
 w-3
 
@@ -502,23 +427,41 @@ shadow-[0_0_20px_rgba(34,211,238,0.9)]
 
 "
 
->
 
+>
 
 
 </motion.div>
 
 
-<ArrowDown
+
+
+
+
+
+
+{/* Up Arrow */}
+
+
+
+<ArrowUp
+
 
 className="
+
 absolute
-bottom-0
+
+top-0
+
 -ml-[11px]
+
 text-cyan-400
+
 "
 
 />
+
+
 
 
 </div>
@@ -535,6 +478,8 @@ text-cyan-400
 
 
 }
+
+
 
 
 

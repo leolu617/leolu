@@ -101,7 +101,7 @@ const slides=[
 
 const pdf =
 
-`${import.meta.env.BASE_URL}documents/Integration_Project.pdf`;
+`${import.meta.env.BASE_URL}documents/CMS_Project.pdf`;
 
 
 
@@ -206,7 +206,7 @@ mt-6
 
 >
 
-Enterprise Data Platform
+Data Driven CMS
 
 </h1>
 

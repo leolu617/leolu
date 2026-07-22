@@ -15,12 +15,12 @@ const slides = [
 
 
 {
-title:"Enterprise Cross-System Data Integration Platform Project",
+title:"Enterprise Data Integration Platform Project",
 
 description:
 "Project Manager | Data Engineer | Business Analytics",
 
-button:"View Case Study",
+button:"View Project",
 
 path:"/projects/data-integration-platform",
 
@@ -31,14 +31,14 @@ image:`${import.meta.env.BASE_URL}images/banner-etl.png`
 
 
 {
-title:"Enterprise Data Platform",
+title:"Data-driven CMS Project",
 
 description:
-"ETL | BI Dashboard | Cloud Architecture",
+"CMS | Project Manager | Adobe Experience Manager",
 
-button:"Explore Solution",
+button:"View Project",
 
-path:"/projects/etl",
+path:"/projects/data-driven-cms",
 
 image:`${import.meta.env.BASE_URL}images/banner2.png`
 
@@ -47,12 +47,15 @@ image:`${import.meta.env.BASE_URL}images/banner2.png`
 
 
 {
-title:"Digital Experience Platform",
+title:"AI Content Platform",
 
 description:
-"Adobe Experience Manager Website",
+"CMS | AI | RAG",
 
-button:"Case Study",
+//button:"Explore Solution",
+
+button:null,
+
 
 path:"/projects/aem",
 
@@ -435,8 +438,11 @@ mt-6
 
 
 
+{/* 多一層判斷button是否為null */}
 
 
+{
+slides[index].button && (
 
 
 <motion.button
@@ -489,7 +495,8 @@ cursor-pointer
 
 </motion.button>
 
-
+)
+}
 
 
 

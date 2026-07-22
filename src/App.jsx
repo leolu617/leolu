@@ -16,6 +16,9 @@ import MainLayout from "./layouts/MainLayout";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Projects from "./pages/Projects";
+import Blogs from "./pages/Blogs";
+import Contact from "./pages/Contact";
+import Skills from "./pages/Skills";
 
 
 // Project Detail Pages
@@ -23,6 +26,9 @@ import Projects from "./pages/Projects";
 import ETLProject 
 from "./pages/Projects/Data-Integration-Platform";
 
+
+import CMSProject 
+from "./pages/Projects/Data-driven-CMS";
 
 
 
@@ -65,7 +71,22 @@ function App() {
             element={<Projects />}
           />
 
+          <Route
+            path="/blogs"
+            element={<Blogs />}
+          />
+		  
+		  
+          <Route
+            path="/contact"
+            element={<Contact />}
+          />
 
+          <Route
+            path="/skills"
+            element={<Skills />}
+          />
+		  
 
 
 
@@ -82,6 +103,18 @@ function App() {
             element={<ETLProject />}
 
           />
+		  
+		  
+		   <Route
+
+            path="/projects/data-driven-cms"
+
+            element={<CMSProject />}
+
+          />
+
+
+
 
 
 

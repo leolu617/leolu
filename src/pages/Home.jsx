@@ -19,9 +19,6 @@ import CertificationShowcase
 from "../components/CertificationShowcase";
 
 
-import DataPipeline 
-from "../components/DataPipeline";
-
 
 import TechMarquee
 from "../components/TechMarquee";
@@ -47,7 +44,6 @@ function Home(){
 
       <Projects />
 	  
-<DataPipeline />
 
 <CertificationShowcase />
 
