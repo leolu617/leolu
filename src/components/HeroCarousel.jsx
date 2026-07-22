@@ -42,8 +42,9 @@ title:"Digital Experience Platform",
 description:
 "Adobe Experience Manager Website",
 
+button:"Case Study",
 
-image:"/images/aem-bg.jpg"
+image:`${import.meta.env.BASE_URL}images/banner3.png`
 
 }
 
@@ -92,6 +93,8 @@ overflow-hidden
 <AnimatePresence>
 
 
+{/* Banner Image Animation */}
+
 <motion.div
 
 key={index}
@@ -112,25 +115,50 @@ transition={{
 duration:0.8
 }}
 
+className="
+absolute
+inset-0
+overflow-hidden
+"
 
+>
+
+
+
+
+
+{/* Background Image */}
+
+<motion.img
+
+src={slides[index].image}
 
 className="
 absolute
 inset-0
-bg-cover
-bg-center
+w-full
+h-full
+object-cover
+z-0
 "
-
-style={{
-
-backgroundImage:
-`url(${slides[index].image})`
-
+initial={{
+  scale:1.0
 }}
 
->
+animate={{
+  scale:1.18
+}}
 
-//樣式，左暗右亮蒙層
+transition={{
+  duration:6,
+  ease:"easeOut"
+}}
+
+/>
+
+
+
+{/* Gradient Overlay */}
 
 <div
 className="
@@ -140,14 +168,18 @@ bg-gradient-to-r
 from-slate-950/90
 via-slate-900/50
 to-transparent
+z-10
 "
 />
 
 
+
+{/* Text Content */}
+
 <div
 className="
 relative
-z-10
+z-20
 h-full
 flex
 items-center
@@ -193,6 +225,8 @@ bg-blue-600
 px-8
 py-3
 rounded-lg
+hover:bg-blue-700
+transition
 "
 >
 
@@ -208,12 +242,15 @@ rounded-lg
 </div>
 
 
+
 </motion.div>
 
 
 </AnimatePresence>
 
 
+
+{/* Left Button */}
 
 <button
 
@@ -223,10 +260,11 @@ className="
 absolute
 left-5
 top-1/2
-z-20
+z-30
 bg-white/20
 p-3
 rounded-full
+hover:bg-white/40
 "
 
 >
@@ -237,6 +275,7 @@ rounded-full
 
 
 
+{/* Right Button */}
 
 <button
 
@@ -246,10 +285,11 @@ className="
 absolute
 right-5
 top-1/2
-z-20
+z-30
 bg-white/20
 p-3
 rounded-full
+hover:bg-white/40
 "
 
 >
