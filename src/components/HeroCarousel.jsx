@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 
+import { useNavigate } from "react-router-dom";
+
 import {
   ChevronLeft,
   ChevronRight
@@ -8,19 +10,24 @@ import {
 import { motion, AnimatePresence } from "framer-motion";
 
 
+
 const slides = [
 
+
 {
-title:"Building Data-Driven Solutions",
+title:"Enterprise Cross-System Data Integration Platform Project",
 
 description:
 "Project Manager | Data Engineer | Business Analytics",
 
-button:"View Projects",
+button:"View Case Study",
+
+path:"/projects/data-integration-platform",
 
 image:`${import.meta.env.BASE_URL}images/banner-etl.png`
 
 },
+
 
 
 {
@@ -31,9 +38,12 @@ description:
 
 button:"Explore Solution",
 
+path:"/projects/etl",
+
 image:`${import.meta.env.BASE_URL}images/banner2.png`
 
 },
+
 
 
 {
@@ -44,18 +54,37 @@ description:
 
 button:"Case Study",
 
+path:"/projects/aem",
+
 image:`${import.meta.env.BASE_URL}images/banner3.png`
 
 }
 
+
 ];
+
+
 
 
 
 function HeroCarousel(){
 
 
+const navigate = useNavigate();
+
+
 const [index,setIndex]=useState(0);
+
+
+
+const [mouse,setMouse]=useState({
+
+x:50,
+y:50
+
+});
+
+
 
 
 
@@ -79,47 +108,147 @@ setIndex(
 
 
 
+
+
+function handleMouseMove(e){
+
+
+const rect=e.currentTarget.getBoundingClientRect();
+
+
+setMouse({
+
+x:
+((e.clientX-rect.left)/rect.width)*100,
+
+
+y:
+((e.clientY-rect.top)/rect.height)*100
+
+
+});
+
+
+}
+
+
+
+
+
+
+function handleNavigate(){
+
+
+if(slides[index].path){
+
+navigate(slides[index].path);
+
+}
+
+
+}
+
+
+
+
+
 return (
 
 <section
+
+onMouseMove={handleMouseMove}
+
 className="
 relative
 h-screen
 overflow-hidden
 "
+
+
 >
+
+
+
+
+
+{/* Spotlight */}
+
+<div
+
+className="
+absolute
+inset-0
+z-20
+pointer-events-none
+"
+
+style={{
+
+background:
+
+`radial-gradient(
+600px circle at ${mouse.x}% ${mouse.y}%,
+rgba(186,230,253,0.12),
+transparent 45%
+)`
+
+}}
+
+
+/>
+
+
+
+
+
+
 
 
 <AnimatePresence>
 
 
-{/* Banner Image Animation */}
-
 <motion.div
+
 
 key={index}
 
+
 initial={{
+
 opacity:0
+
 }}
+
 
 animate={{
+
 opacity:1
+
 }}
+
 
 exit={{
+
 opacity:0
+
 }}
 
+
 transition={{
-duration:0.8
+
+duration:1.2
+
 }}
+
+
 
 className="
 absolute
 inset-0
 overflow-hidden
+z-10
 "
+
 
 >
 
@@ -127,11 +256,11 @@ overflow-hidden
 
 
 
-{/* Background Image */}
-
 <motion.img
 
+
 src={slides[index].image}
+
 
 className="
 absolute
@@ -139,86 +268,207 @@ inset-0
 w-full
 h-full
 object-cover
-z-0
 "
+
+
 initial={{
-  scale:1.0
+
+scale:1
+
 }}
+
 
 animate={{
-  scale:1.18
+
+scale:1.18
+
 }}
 
+
 transition={{
-  duration:6,
-  ease:"easeOut"
+
+duration:8,
+
+ease:"easeOut"
+
 }}
+
 
 />
 
 
 
-{/* Gradient Overlay */}
+
+
+
 
 <div
+
 className="
 absolute
 inset-0
 bg-gradient-to-r
-from-slate-950/90
-via-slate-900/50
+from-slate-950/95
+via-slate-950/75
 to-transparent
-z-10
 "
+
 />
 
 
 
-{/* Text Content */}
+
+
+
+
 
 <div
+
 className="
 relative
-z-20
+z-30
 h-full
 flex
 items-center
 px-20
 text-white
 "
+
+
 >
 
 
 <div>
 
 
-<h1
+
+<motion.h1
+
+
+initial={{
+
+opacity:0,
+
+y:40
+
+}}
+
+
+animate={{
+
+opacity:1,
+
+y:0
+
+}}
+
+
+transition={{
+
+duration:0.8
+
+}}
+
+
 className="
 text-6xl
 font-bold
 "
+
+
 >
+
 
 {slides[index].title}
 
-</h1>
+
+</motion.h1>
 
 
 
-<p
+
+
+
+
+<motion.p
+
+
+initial={{
+
+opacity:0,
+
+y:30
+
+}}
+
+
+animate={{
+
+opacity:1,
+
+y:0
+
+}}
+
+
+transition={{
+
+duration:1
+
+}}
+
+
 className="
 text-xl
 mt-6
 "
+
+
 >
+
 
 {slides[index].description}
 
-</p>
+
+</motion.p>
 
 
 
-<button
+
+
+
+
+
+<motion.button
+
+
+onClick={handleNavigate}
+
+
+
+whileHover={{
+
+scale:1.05
+
+}}
+
+
+whileTap={{
+
+scale:0.95
+
+}}
+
+
+
+transition={{
+
+duration:0.2
+
+}}
+
+
+
 className="
 mt-10
 bg-blue-600
@@ -227,12 +477,19 @@ py-3
 rounded-lg
 hover:bg-blue-700
 transition
+cursor-pointer
 "
+
+
 >
+
 
 {slides[index].button}
 
-</button>
+
+</motion.button>
+
+
 
 
 
@@ -240,6 +497,7 @@ transition
 
 
 </div>
+
 
 
 
@@ -250,7 +508,11 @@ transition
 
 
 
-{/* Left Button */}
+
+
+
+
+
 
 <button
 
@@ -260,11 +522,12 @@ className="
 absolute
 left-5
 top-1/2
-z-30
+z-40
 bg-white/20
 p-3
 rounded-full
 hover:bg-white/40
+transition
 "
 
 >
@@ -275,7 +538,9 @@ hover:bg-white/40
 
 
 
-{/* Right Button */}
+
+
+
 
 <button
 
@@ -285,11 +550,12 @@ className="
 absolute
 right-5
 top-1/2
-z-30
+z-40
 bg-white/20
 p-3
 rounded-full
 hover:bg-white/40
+transition
 "
 
 >
@@ -300,12 +566,16 @@ hover:bg-white/40
 
 
 
+
+
+
 </section>
 
 
 )
 
 }
+
 
 
 export default HeroCarousel;

@@ -6,6 +6,32 @@ import Projects from "../components/Projects";
 import Skills from "../components/Skills";
 
 
+import ScrollingDataWall
+from "../components/ScrollingDataWall";
+
+
+import DataDashboard
+from "../components/DataDashboard";
+
+
+
+import CertificationShowcase
+from "../components/CertificationShowcase";
+
+
+import DataPipeline 
+from "../components/DataPipeline";
+
+
+import TechMarquee
+from "../components/TechMarquee";
+
+
+
+import GlobalProjectNetwork
+from "../components/GlobalProjectNetwork";
+
+
 function Home(){
 
   return (
@@ -15,11 +41,25 @@ function Home(){
       <HeroCarousel />
 
       <About />
+	  
+	  <DataDashboard />
+	  
 
       <Projects />
+	  
+<DataPipeline />
+
+<CertificationShowcase />
 
       <Skills />
 
+
+<GlobalProjectNetwork />
+
+
+<ScrollingDataWall />
+
+<TechMarquee />
     </>
 
   );
