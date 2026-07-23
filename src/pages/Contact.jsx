@@ -13,7 +13,8 @@ Send,
 Database,
 Cloud,
 BarChart3,
-BriefcaseBusiness
+BriefcaseBusiness,
+House
 }
 from "lucide-react";
 
@@ -239,8 +240,7 @@ leading-relaxed
 
 Open for opportunities involving
 Data Engineering,
-Project Management,
-Business Analytics,
+Project Management
 and Enterprise Digital Transformation.
 
 </p>
@@ -300,7 +300,7 @@ title="Email"
 
 text="Professional Inquiry"
 
-value="leo.lu@email.com"
+value="t1993617@gmail.com"
 
 />
 
@@ -316,7 +316,7 @@ title="LinkedIn"
 
 text="Professional Network"
 
-value="linkedin.com/in/leolu"
+value="https://www.linkedin.com/in/pmleolu/"
 
 />
 
@@ -326,13 +326,13 @@ value="linkedin.com/in/leolu"
 
 <ContactCard
 
-icon={<Github/>}
+icon={<House />}
 
-title="GitHub"
+title="Home Page"
 
-text="Technical Portfolio"
+text="Professional Content"
 
-value="github.com/leolu"
+value="https://leolu617.github.io/leolu/#/"
 
 />
 

@@ -40,7 +40,10 @@ items:[
 "Oracle / MySQL"
 ],
 
-position:"top-10 left-1/2 -translate-x-1/2"
+position:{
+x:380,
+y:40
+}
 
 },
 
@@ -57,7 +60,10 @@ items:[
 "Cloud Deployment"
 ],
 
-position:"top-1/2 right-0 -translate-y-1/2"
+position:{
+x:780,
+y:250
+}
 
 },
 
@@ -75,7 +81,10 @@ items:[
 "Dashboard Design"
 ],
 
-position:"bottom-10 left-1/2 -translate-x-1/2"
+position:{
+x:380,
+y:620
+}
 
 },
 
@@ -93,7 +102,10 @@ items:[
 "React"
 ],
 
-position:"top-1/2 left-0 -translate-y-1/2"
+position:{
+x:20,
+y:250
+}
 
 },
 
@@ -112,7 +124,10 @@ items:[
 "Enterprise Delivery"
 ],
 
-position:"bottom-20 right-10"
+position:{
+x:780,
+y:620
+}
 
 },
 
@@ -131,14 +146,16 @@ items:[
 "Data Innovation"
 ],
 
-position:"bottom-20 left-10"
+position:{
+x:20,
+y:620
+}
 
 }
 
 
 
 ];
-
 
 
 
@@ -173,11 +190,7 @@ name:"AI Application",
 value:"70%"
 }
 
-
-
 ];
-
-
 
 
 
@@ -206,17 +219,16 @@ relative
 
 {/* Background Grid */}
 
-
 <div
 
 className="
 absolute
 inset-0
 opacity-20
+pointer-events-none
 "
 
 style={{
-
 
 backgroundImage:
 
@@ -236,17 +248,14 @@ backgroundSize:"50px 50px"
 
 
 
-
-
-
 {/* Header */}
-
 
 
 <section
 
 className="
 relative
+z-10
 pt-32
 text-center
 "
@@ -300,7 +309,6 @@ Enterprise Technology Stack & Data Architecture Capability
 </p>
 
 
-
 </section>
 
 
@@ -309,32 +317,23 @@ Enterprise Technology Stack & Data Architecture Capability
 
 
 
-
-
-{/* Network Area */}
-
+{/* Network Canvas */}
 
 
 <section
 
 className="
 relative
+z-10
 max-w-6xl
 mx-auto
-h-[850px]
+h-[900px]
 mt-10
 "
 
 >
 
-
-
-
-
-
-
 {/* Connection Lines */}
-
 
 <svg
 
@@ -343,6 +342,7 @@ absolute
 inset-0
 w-full
 h-full
+pointer-events-none
 "
 
 >
@@ -394,7 +394,6 @@ strokeWidth="2"
 
 ))
 
-
 }
 
 
@@ -407,87 +406,7 @@ strokeWidth="2"
 
 
 
-{/* Animated Data Flow */}
-
-
-
-{
-
-skills.map((_,index)=>(
-
-
-<motion.div
-
-
-key={index}
-
-
-animate={{
-
-opacity:[0,1,0],
-
-x:[0,40]
-
-}}
-
-
-transition={{
-
-duration:2.5,
-
-repeat:Infinity,
-
-delay:index*0.4
-
-}}
-
-
-
-className="
-
-absolute
-
-top-1/2
-
-left-1/2
-
-w-3
-
-h-3
-
-rounded-full
-
-bg-cyan-300
-
-shadow-[0_0_20px_rgba(34,211,238,1)]
-
-"
-
-style={{
-
-transformOrigin:"center"
-
-}}
-
-
-/>
-
-
-))
-
-
-}
-
-
-
-
-
-
-
-
-
 {/* Core Node */}
-
 
 
 <motion.div
@@ -507,6 +426,7 @@ duration:3,
 repeat:Infinity
 
 }}
+
 
 
 className="
@@ -568,6 +488,7 @@ Leo Lu
 </h2>
 
 
+
 <p
 
 className="
@@ -579,6 +500,7 @@ text-sm
 Data Engineer
 
 </p>
+
 
 
 <p
@@ -606,8 +528,7 @@ Solution Architect
 
 
 
-{/* Skill Nodes */}
-
+{/* Draggable Skill Nodes */}
 
 
 {
@@ -621,6 +542,17 @@ skills.map((skill,index)=>(
 key={skill.title}
 
 
+
+drag
+
+
+dragMomentum={false}
+
+
+dragElastic={0.1}
+
+
+
 initial={{
 
 opacity:0,
@@ -630,13 +562,15 @@ scale:0.8
 }}
 
 
-whileInView={{
+
+animate={{
 
 opacity:1,
 
 scale:1
 
 }}
+
 
 
 transition={{
@@ -657,15 +591,27 @@ scale:1.08
 
 
 
-className={`
+style={{
+
+position:"absolute",
+
+left:skill.position.x,
+
+top:skill.position.y,
+
+touchAction:"none"
+
+}}
 
 
-absolute
 
-${skill.position}
+className="
 
 w-64
 
+cursor-grab
+
+active:cursor-grabbing
 
 bg-white/10
 
@@ -681,16 +627,13 @@ p-6
 
 shadow-xl
 
-
 hover:border-cyan-300
 
-transition
+select-none
 
-`}
-
+"
 
 >
-
 
 
 <div
@@ -704,6 +647,7 @@ text-cyan-300
 {skill.icon}
 
 </div>
+
 
 
 
@@ -724,6 +668,7 @@ mt-4
 
 
 
+
 <span
 
 className="
@@ -731,9 +676,13 @@ inline-block
 mt-3
 px-3
 py-1
+
 rounded-full
+
 bg-cyan-500/20
+
 text-cyan-300
+
 text-xs
 "
 
@@ -742,6 +691,7 @@ text-xs
 {skill.level}
 
 </span>
+
 
 
 
@@ -764,7 +714,11 @@ text-slate-300
 skill.items.map(item=>(
 
 
-<li key={item}>
+<li
+
+key={item}
+
+>
 
 ● {item}
 
@@ -773,11 +727,12 @@ skill.items.map(item=>(
 
 ))
 
+
 }
 
 
-</ul>
 
+</ul>
 
 
 
@@ -804,7 +759,6 @@ skill.items.map(item=>(
 {/* Technology Stack */}
 
 
-
 <section
 
 className="
@@ -821,10 +775,15 @@ pb-24
 
 className="
 bg-white/10
+
 backdrop-blur-xl
+
 border
+
 border-white/10
+
 rounded-3xl
+
 p-10
 "
 
@@ -846,12 +805,16 @@ Enterprise Technology Stack
 
 
 
+
 <div
 
 className="
 grid
+
 md:grid-cols-4
+
 gap-6
+
 mt-8
 "
 
@@ -859,30 +822,49 @@ mt-8
 
 
 <StackCard
+
 icon={<Server/>}
+
 title="Backend"
+
 text="Java | Python | API"
+
 />
 
 
+
 <StackCard
+
 icon={<Database/>}
+
 title="Data"
+
 text="ETL | Warehouse"
+
 />
 
 
+
 <StackCard
+
 icon={<Cloud/>}
+
 title="Cloud"
+
 text="AWS | OpenShift"
+
 />
 
 
+
 <StackCard
+
 icon={<Layers/>}
+
 title="Analytics"
+
 text="BI Platform"
+
 />
 
 
@@ -911,8 +893,11 @@ text="BI Platform"
 
 className="
 max-w-6xl
+
 mx-auto
+
 px-6
+
 pb-24
 "
 
@@ -923,10 +908,15 @@ pb-24
 
 className="
 bg-white/10
+
 backdrop-blur-xl
+
 border
+
 border-cyan-400/20
+
 rounded-3xl
+
 p-10
 "
 
@@ -953,6 +943,7 @@ Capability Matrix
 
 className="
 mt-8
+
 space-y-6
 "
 
@@ -964,24 +955,41 @@ space-y-6
 capability.map(item=>(
 
 
-<div key={item.name}>
+<div
+
+key={item.name}
+
+>
 
 
-<div className="
+<div
+
+className="
 flex
+
 justify-between
+
 mb-2
-">
+"
+
+>
 
 
 <span>
+
 {item.name}
+
 </span>
 
 
-<span className="
+
+<span
+
+className="
 text-cyan-400
-">
+"
+
+>
 
 {item.value}
 
@@ -992,21 +1000,33 @@ text-cyan-400
 
 
 
-<div className="
+
+<div
+
+className="
 h-3
+
 bg-white/10
+
 rounded-full
+
 overflow-hidden
-">
+"
+
+>
 
 
 <div
 
 className="
 h-full
+
 bg-gradient-to-r
+
 from-cyan-400
+
 to-blue-500
+
 rounded-full
 "
 
@@ -1020,7 +1040,6 @@ width:item.value
 
 
 </div>
-
 
 
 </div>
@@ -1052,7 +1071,6 @@ width:item.value
 {/* Certification */}
 
 
-
 <section
 
 className="
@@ -1066,7 +1084,9 @@ pb-32
 
 className="
 max-w-6xl
+
 mx-auto
+
 px-6
 "
 
@@ -1077,7 +1097,9 @@ px-6
 
 className="
 flex
+
 items-center
+
 gap-3
 "
 
@@ -1091,6 +1113,7 @@ text-yellow-400
 "
 
 />
+
 
 
 <h2
@@ -1111,12 +1134,17 @@ Certification
 
 
 
+
+
 <div
 
 className="
 grid
+
 md:grid-cols-3
+
 gap-6
+
 mt-8
 "
 
@@ -1143,15 +1171,13 @@ mt-8
 
 
 
-
-
-
 </div>
 
 
 )
 
 }
+
 
 
 
@@ -1177,38 +1203,59 @@ return (
 
 className="
 bg-black/20
+
 rounded-xl
+
 p-5
+
 border
+
 border-cyan-400/20
 "
 
 >
 
-<div className="
+
+<div
+
+className="
 text-cyan-400
-">
+"
+
+>
 
 {icon}
 
 </div>
 
 
-<h3 className="
+<h3
+
+className="
 font-bold
+
 mt-3
-">
+"
+
+>
 
 {title}
 
 </h3>
 
 
-<p className="
+
+<p
+
+className="
 text-sm
+
 text-slate-400
+
 mt-2
-">
+"
+
+>
 
 {text}
 
@@ -1220,6 +1267,7 @@ mt-2
 )
 
 }
+
 
 
 
@@ -1241,9 +1289,13 @@ return (
 
 className="
 bg-white/10
+
 border
+
 border-yellow-400/30
+
 rounded-xl
+
 p-6
 "
 
@@ -1254,6 +1306,7 @@ p-6
 
 className="
 text-yellow-400
+
 font-bold
 "
 
@@ -1266,9 +1319,13 @@ font-bold
 
 </div>
 
+
 )
 
 }
+
+
+
 
 
 

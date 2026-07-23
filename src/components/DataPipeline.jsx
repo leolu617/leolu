@@ -24,37 +24,30 @@ const nodes=[
 
 
 {
-title:"Source System",
-desc:"Enterprise Applications",
+title:"Project Manager",
+desc:"Leads Technologies",
 icon:<ChartBar />
 },
 
 
 {
-title:"Database",
-desc:"Oracle / MySQL",
+title:"Project Manager",
+desc:"FucoTech",
 icon:<ChartBar />
 },
 
 
 {
-title:"ETL Pipeline",
-desc:"Informatica",
+title:"Principal Engineer",
+desc:"MIRLE IOTnet",
 icon:<Layers/>
 },
 
 
 {
-title:"Data Warehouse",
-desc:"Enterprise Data Platform",
+title:"Software Engineer",
+desc:"COMWAVE",
 icon:<Database/>
-},
-
-
-{
-title:"BI Dashboard",
-desc:"Analytics & Decision Making",
-icon:<BarChart3/>
 }
 
 

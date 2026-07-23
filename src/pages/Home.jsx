@@ -49,9 +49,9 @@ function Home(){
 
       <Skills />
 
-
+{/* 
 <GlobalProjectNetwork />
-
+ */}
 
 <ScrollingDataWall />
 

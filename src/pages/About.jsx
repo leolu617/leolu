@@ -136,7 +136,6 @@ text-6xl
 font-bold
 mt-6
 "
-
 >
 
 Leo Lu
@@ -580,7 +579,7 @@ mt-10
 
 icon={<GraduationCap/>}
 
-title="Purdue University"
+title="Purdue University(Currently enrolled)"
 
 text="Master of Science in Business Analytics"
 
