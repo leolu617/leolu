@@ -204,23 +204,32 @@ gap-3
 "
 
 >
-
-
 <img
 
-src={`${import.meta.env.BASE_URL}images/logo.png`}
+src={
+  `${import.meta.env.BASE_URL}images/logo.svg`
+}
 
-className="
+className={`
 h-12
 w-12
 object-contain
-"
+transition-all
+duration-300
+
+${
+scrolled
+?
+"brightness-0 invert"
+:
+""
+}
+
+`}
 
 alt="Leo Lu"
 
 />
-
-
 
 <span
 
