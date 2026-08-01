@@ -14,7 +14,6 @@ import DataDashboard
 from "../components/DataDashboard";
 
 
-
 import CertificationShowcase
 from "../components/CertificationShowcase";
 
@@ -29,6 +28,10 @@ import GlobalProjectNetwork
 from "../components/GlobalProjectNetwork";
 
 
+import RecentActivities from "../components/RecentActivities";
+
+
+
 function Home(){
 
   return (
@@ -39,10 +42,14 @@ function Home(){
 
       <About />
 	  
+	  <RecentActivities />
+	  
+      <Projects />
+	  
 	  <DataDashboard />
 	  
 
-      <Projects />
+
 	  
 
 <CertificationShowcase />
