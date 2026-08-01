@@ -305,7 +305,6 @@ scrolled
 ?
 
 "text-white"
-
 :
 
 "text-slate-900"
@@ -496,6 +495,7 @@ Enterprise Data Platform
 
 
 
+
 <button
 
 onClick={()=>navigateTop(
@@ -530,6 +530,48 @@ Data Driven CMS
 
 
 
+
+
+
+
+
+
+
+<button
+
+onClick={()=>navigateTop(
+"/preparing"
+)}
+
+className="
+
+block
+
+w-full
+
+text-left
+
+px-5
+
+py-3
+
+text-slate-800
+
+hover:bg-blue-50
+
+hover:text-blue-600
+
+"
+
+>
+
+Proprietary CMS Solution
+</button>
+
+
+
+
+
 </div>
 
 
@@ -539,6 +581,36 @@ Data Driven CMS
 
 </div>
 
+
+
+
+
+{/* Productizations */}
+
+
+<button
+
+onClick={()=>navigateTop("/Preparing")}
+
+className={
+
+scrolled
+
+?
+
+"text-white"
+
+:
+
+"text-slate-900"
+
+}
+
+>
+
+Productizations
+
+</button>
 
 
 

@@ -1,303 +1,997 @@
-import React from "react";
-import { motion } from "framer-motion";
+import React,{useState} from "react";
+
+
 import {
-  Construction,
-  ShieldAlert,
-  ArrowLeft
+
+Database,
+Cloud,
+BarChart3,
+Brain,
+FolderKanban,
+Clock
+
 } from "lucide-react";
 
-import { Link } from "react-router-dom";
 
-function ComingSoon() {
-  return (
-    <div
-      className="
-      min-h-screen
-      bg-[#020617]
-      text-cyan-300
-      overflow-hidden
-      relative
-    "
-    >
+import {motion} from "framer-motion";
 
-      {/* Grid Background */}
-      <div
-        className="
-        absolute
-        inset-0
-        opacity-20
-      "
-        style={{
-          backgroundImage: `
-            linear-gradient(#0f172a 1px, transparent 1px),
-            linear-gradient(90deg,#0f172a 1px, transparent 1px)
-          `,
-          backgroundSize: "40px 40px"
-        }}
-      />
 
-      {/* Glow */}
-      <div
-        className="
-        absolute
-        top-1/2
-        left-1/2
-        -translate-x-1/2
-        -translate-y-1/2
-        w-[600px]
-        h-[600px]
-        rounded-full
-        bg-cyan-500/10
-        blur-[150px]
-      "
-      />
 
-      <div
-        className="
-        relative
-        z-10
-        flex
-        items-center
-        justify-center
-        min-h-screen
-        px-6
-      "
-      >
 
-        <motion.div
-          initial={{
-            opacity: 0,
-            scale: 0.9
-          }}
-          animate={{
-            opacity: 1,
-            scale: 1
-          }}
-          transition={{
-            duration: 0.8
-          }}
-          className="
-          w-full
-          max-w-4xl
-        "
-        >
 
-          {/* Terminal Window */}
-          <div
-            className="
-            bg-slate-950/90
-            border
-            border-cyan-500/30
-            rounded-3xl
-            overflow-hidden
-            shadow-[0_0_80px_rgba(34,211,238,0.25)]
-          "
-          >
+const categories=[
 
-            {/* Header */}
-            <div
-              className="
-              bg-cyan-500/10
-              border-b
-              border-cyan-500/20
-              px-6
-              py-4
-              flex
-              items-center
-              gap-3
-            "
-            >
-              <div className="w-3 h-3 rounded-full bg-red-500" />
-              <div className="w-3 h-3 rounded-full bg-yellow-500" />
-              <div className="w-3 h-3 rounded-full bg-green-500" />
+"All",
 
-              <span
-                className="
-                text-sm
-                ml-4
-                text-cyan-300
-                tracking-wider
-              "
-              >
-                PROJECT_TERMINAL.exe
-              </span>
-            </div>
+"Data Engineering",
 
-            {/* Content */}
-            <div className="p-10">
+"Cloud",
 
-              {/* Construction Icon */}
-              <motion.div
-                animate={{
-                  rotate: [-5, 5, -5],
-                  opacity: [1, 0.7, 1]
-                }}
-                transition={{
-                  duration: 2,
-                  repeat: Infinity
-                }}
-                className="
-                flex
-                justify-center
-                mb-8
-              "
-              >
-                <Construction
-                  size={90}
-                  className="text-yellow-400"
-                />
-              </motion.div>
+"AI",
 
-              <div className="text-center">
+"Project Management",
 
-                <p
-                  className="
-                  text-cyan-400
-                  tracking-[0.4em]
-                  mb-4
-                "
-                >
-                  PAGE STATUS
-                </p>
+"Analytics"
 
-                <h1
-                  className="
-                  text-6xl
-                  font-bold
-                  text-white
-                  leading-tight
-                "
-                >
-                  BLOGS UNDER
-                  <br />
-                  CONSTRUCTION
-                </h1>
+];
 
-                <div
-                  className="
-                  flex
-                  justify-center
-                  mt-6
-                "
-                >
-                  <ShieldAlert
-                    size={28}
-                    className="text-yellow-400"
-                  />
-                </div>
 
-                <p
-                  className="
-                  text-slate-400
-                  text-xl
-                  mt-8
-                  max-w-2xl
-                  mx-auto
-                  leading-relaxed
-                "
-                >
-                  This Blogs page is currently being written.
-                  <br />
-                  The content will be published soon.
-                </p>
 
-              </div>
 
-              {/* Terminal Messages */}
-              <div
-                className="
-                mt-12
-                bg-black
-                border
-                border-cyan-500/20
-                rounded-2xl
-                p-6
-                font-mono
-                text-sm
-              "
-              >
 
-                <div className="mb-3">
-                  &gt; Initializing Portfolio System...
-                </div>
 
-                <div className="mb-3 text-green-400">
-                  ✓ Connection Established
-                </div>
+const blogs=[
 
-                <div className="mb-3 text-green-400">
-                  ✓ Project Repository Loaded
-                </div>
 
-                <div className="mb-3 text-yellow-400">
-                  ⚠ Project Status = Under Construction
-                </div>
+{
+title:
+"Building Enterprise Data Pipeline with ETL Architecture",
 
-                <motion.div
-                  animate={{
-                    opacity: [1, 0, 1]
-                  }}
-                  transition={{
-                    repeat: Infinity,
-                    duration: 1
-                  }}
-                  className="text-cyan-300"
-                >
-                  &gt; Building Project Documentation...
-                </motion.div>
+description:
+"How enterprise systems transform raw data into reliable business intelligence through ETL workflows.",
 
-              </div>
+category:
+"Data Engineering",
 
-              {/* Button */}
-              <div
-                className="
-                mt-10
-                flex
-                justify-center
-              "
-              >
-                <Link
-                  to="/projects"
-                  className="
-                  inline-flex
-                  items-center
-                  gap-3
-                  px-8
-                  py-4
-                  rounded-xl
-                  bg-cyan-500/10
-                  border
-                  border-cyan-500/30
-                  hover:bg-cyan-500/20
-                  transition
-                "
-                >
-                  <ArrowLeft size={18} />
-                  Explore Other Projects
-                </Link>
-              </div>
+tags:[
+"ETL",
+"Informatica",
+"Oracle"
+],
 
-            </div>
-          </div>
+date:
+"2026.01",
 
-          {/* Footer Status */}
-          <div
-            className="
-            text-center
-            mt-8
-            text-slate-500
-            text-sm
-            tracking-widest
-          "
-          >
-            PROJECT STATUS : BUILDING CASE STUDY
-          </div>
+read:
+"8 min",
 
-        </motion.div>
+icon:<Database/>
 
-      </div>
-    </div>
-  );
+},
+
+
+
+
+
+{
+title:
+"Designing Cross-System Data Integration Platform",
+
+description:
+"Architecture considerations when connecting multiple enterprise systems.",
+
+category:
+"Project Management",
+
+tags:[
+"Integration",
+"API",
+"Architecture"
+],
+
+date:
+"2026.02",
+
+read:
+"10 min",
+
+icon:<FolderKanban/>
+
+},
+
+
+
+
+
+
+{
+title:
+"Cloud Architecture for Enterprise Applications",
+
+description:
+"A practical overview of AWS and OpenShift deployment patterns.",
+
+category:
+"Cloud",
+
+tags:[
+"AWS",
+"OpenShift",
+"Cloud Native"
+],
+
+date:
+"2026.03",
+
+read:
+"7 min",
+
+icon:<Cloud/>
+
+},
+
+
+
+
+
+
+
+{
+title:
+"Applying AI RAG Architecture in Enterprise CMS",
+
+description:
+"How Retrieval Augmented Generation improves enterprise content platforms.",
+
+category:
+"AI",
+
+tags:[
+"RAG",
+"LLM",
+"Vector Database"
+],
+
+date:
+"2026.04",
+
+read:
+"12 min",
+
+icon:<Brain/>
+
+},
+
+
+
+
+
+
+{
+title:
+"Building Business Analytics Dashboard",
+
+description:
+"From data modeling to BI visualization and decision support.",
+
+category:
+"Analytics",
+
+tags:[
+"Power BI",
+"FineBI",
+"SAP Analytics"
+],
+
+date:
+"2026.05",
+
+read:
+"6 min",
+
+icon:<BarChart3/>
+
 }
 
-export default ComingSoon;
+
+
+];
+
+
+
+
+
+
+
+
+function Blogs(){
+
+
+
+const [active,setActive]=useState("All");
+
+
+
+
+const filteredBlogs =
+
+active==="All"
+
+?
+
+blogs
+
+:
+
+blogs.filter(
+
+item=>item.category===active
+
+);
+
+
+
+
+
+
+
+return(
+
+
+<div
+
+className="
+min-h-screen
+bg-slate-50
+text-slate-900
+"
+
+>
+
+
+
+
+
+
+
+
+
+
+{/* =====================
+Hero
+===================== */}
+
+
+
+<section
+
+className="
+relative
+overflow-hidden
+py-32
+"
+
+>
+
+
+<div
+
+className="
+absolute
+inset-0
+bg-gradient-to-br
+from-blue-50
+via-white
+to-cyan-50
+"
+
+/>
+
+
+
+
+
+<div
+
+className="
+relative
+max-w-6xl
+mx-auto
+px-6
+"
+
+>
+
+
+
+<motion.div
+
+
+initial={{
+
+opacity:0,
+
+y:40
+
+}}
+
+
+animate={{
+
+opacity:1,
+
+y:0
+
+}}
+
+
+transition={{
+
+duration:0.8
+
+}}
+
+
+
+>
+
+
+<p
+
+className="
+text-blue-600
+tracking-[0.3em]
+font-semibold
+"
+
+>
+
+BLOG & KNOWLEDGE HUB
+
+</p>
+
+
+
+
+
+
+
+<h1
+
+className="
+text-6xl
+font-bold
+mt-6
+text-slate-900
+"
+
+>
+
+Engineering Insights
+
+</h1>
+
+
+
+
+
+
+
+<p
+
+className="
+mt-8
+max-w-3xl
+text-xl
+leading-relaxed
+text-slate-600
+"
+
+>
+
+Sharing experience and knowledge about
+
+Data Engineering,
+
+Enterprise Architecture,
+
+Cloud Platform,
+
+AI Applications and Project Delivery.
+
+</p>
+
+
+
+
+
+
+
+<div
+
+className="
+mt-10
+flex
+gap-4
+flex-wrap
+"
+
+>
+
+
+<span
+
+className="
+px-5
+py-2
+rounded-full
+bg-blue-100
+text-blue-700
+"
+
+>
+
+Data Engineering
+
+</span>
+
+
+
+<span
+
+className="
+px-5
+py-2
+rounded-full
+bg-cyan-100
+text-cyan-700
+"
+
+>
+
+AI & Cloud
+
+</span>
+
+
+
+<span
+
+className="
+px-5
+py-2
+rounded-full
+bg-indigo-100
+text-indigo-700
+"
+
+>
+
+Enterprise Solution
+
+</span>
+
+
+</div>
+
+
+
+
+</motion.div>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+{/* =====================
+Category
+===================== */}
+
+
+
+<section
+
+className="
+max-w-6xl
+mx-auto
+px-6
+py-12
+"
+
+>
+
+
+<div
+
+className="
+flex
+flex-wrap
+gap-4
+"
+
+>
+
+
+{
+
+categories.map(category=>(
+
+
+<button
+
+
+key={category}
+
+
+onClick={()=>setActive(category)}
+
+
+className={`
+
+px-5
+
+py-2
+
+rounded-full
+
+border
+
+transition
+
+
+${
+
+active===category
+
+?
+
+"bg-blue-600 text-white border-blue-600 shadow-lg"
+
+:
+
+"bg-white text-slate-700 border-slate-200 hover:bg-blue-50"
+
+}
+
+`
+
+}
+
+
+>
+
+{category}
+
+
+</button>
+
+
+
+))
+
+
+}
+
+
+
+</div>
+
+
+
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{/* =====================
+Cards
+===================== */}
+
+
+
+<section
+
+className="
+max-w-6xl
+mx-auto
+px-6
+pb-24
+"
+
+>
+
+
+<div
+
+className="
+grid
+
+md:grid-cols-3
+
+gap-8
+
+"
+
+>
+
+
+{
+
+
+filteredBlogs.map((blog,index)=>(
+
+
+<motion.div
+
+
+key={blog.title}
+
+
+initial={{
+
+opacity:0,
+
+y:40
+
+}}
+
+
+animate={{
+
+opacity:1,
+
+y:0
+
+}}
+
+
+
+transition={{
+
+duration:0.5,
+
+delay:index*0.1
+
+}}
+
+
+
+className="
+
+bg-white
+
+rounded-3xl
+
+p-8
+
+shadow-lg
+
+border
+
+border-slate-100
+
+hover:-translate-y-2
+
+hover:shadow-xl
+
+transition
+
+"
+
+
+>
+
+
+
+
+
+
+
+<div
+
+className="
+w-14
+h-14
+rounded-2xl
+bg-blue-100
+flex
+items-center
+justify-center
+text-blue-600
+"
+
+>
+
+{blog.icon}
+
+</div>
+
+
+
+
+
+
+
+
+
+<h2
+
+className="
+text-2xl
+font-bold
+mt-6
+"
+
+>
+
+{blog.title}
+
+</h2>
+
+
+
+
+
+
+
+
+<p
+
+className="
+mt-4
+text-slate-600
+leading-relaxed
+"
+
+>
+
+{blog.description}
+
+</p>
+
+
+
+
+
+
+
+
+<div
+
+className="
+flex
+flex-wrap
+gap-2
+mt-6
+"
+
+>
+
+
+{
+
+blog.tags.map(tag=>(
+
+
+<span
+
+key={tag}
+
+className="
+px-3
+py-1
+rounded-full
+text-sm
+bg-slate-100
+text-slate-600
+"
+
+>
+
+{tag}
+
+</span>
+
+
+))
+
+
+}
+
+
+</div>
+
+
+
+
+
+
+
+
+<div
+
+className="
+flex
+items-center
+justify-between
+mt-8
+text-sm
+text-slate-500
+"
+
+>
+
+
+<span>
+
+{blog.date}
+
+</span>
+
+
+
+<span
+
+className="
+flex
+items-center
+gap-1
+"
+
+>
+
+<Clock size={15}/>
+
+{blog.read}
+
+</span>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+<button
+
+className="
+mt-8
+text-blue-600
+font-semibold
+hover:text-blue-800
+"
+
+>
+
+Read Article →
+
+</button>
+
+
+
+
+
+
+
+</motion.div>
+
+
+
+))
+
+
+}
+
+
+
+</div>
+
+
+
+</section>
+
+
+
+
+
+
+
+
+
+{/* =====================
+CTA
+===================== */}
+
+
+
+<section
+
+className="
+py-24
+bg-gradient-to-r
+from-blue-600
+to-cyan-500
+text-white
+text-center
+"
+
+>
+
+
+<h2
+
+className="
+text-4xl
+font-bold
+"
+
+>
+
+Let's Share Knowledge
+
+</h2>
+
+
+<p
+
+className="
+mt-5
+text-blue-100
+"
+
+>
+
+Explore my engineering journey and enterprise solutions.
+
+</p>
+
+
+
+</section>
+
+
+
+
+
+
+
+</div>
+
+
+)
+
+
+}
+
+
+
+export default Blogs;

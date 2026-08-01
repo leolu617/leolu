@@ -19,6 +19,10 @@ import Projects from "./pages/Projects";
 import Blogs from "./pages/Blogs";
 import Contact from "./pages/Contact";
 import Skills from "./pages/Skills";
+import Preparing from "./pages/Preparing";
+
+
+
 import ScrollToTop from "./components/ScrollToTop";
 
 // Project Detail Pages
@@ -87,6 +91,15 @@ function App() {
             element={<Skills />}
           />
 		  
+		  
+		  <Route
+			path="/preparing"
+			element={<Preparing />}
+			/>
+
+		  
+		  
+		 
 
 
 

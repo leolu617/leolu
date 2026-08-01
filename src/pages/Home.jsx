@@ -19,17 +19,18 @@ from "../components/CertificationShowcase";
 
 
 
-import TechMarquee
-from "../components/TechMarquee";
-
-
-
 import GlobalProjectNetwork
 from "../components/GlobalProjectNetwork";
 
 
 import RecentActivities from "../components/RecentActivities";
 
+
+
+import FeatureSection from "../components/FeatureSection";
+
+
+import FutureBanner from "../components/FutureBanner";
 
 
 function Home(){
@@ -46,23 +47,73 @@ function Home(){
 	  
       <Projects />
 	  
-	  <DataDashboard />
+	  
+	  
+	  
+	  
+	  
 	  
 
 
+<FeatureSection
+
+  image={`${import.meta.env.BASE_URL}images/blogs/1461082.jpg`}
+
+  eyebrow="Data Engineering"
+
+  title="Architecting Modern Data Platforms"
+
+  description="
+  Building scalable enterprise data platforms with
+  cloud infrastructure, ETL pipelines, analytics,
+  and AI-driven solutions.
+  "
+
+/>
+
+
+<FeatureSection
+
+  image={`${import.meta.env.BASE_URL}images/blogs/1461082.jpg`}
+
+  eyebrow="Data Engineering"
+
+  title="Architecting Modern Data Platforms"
+
+  description="
+  Building scalable enterprise data platforms with
+  cloud infrastructure, ETL pipelines, analytics,
+  and AI-driven solutions.
+  "
+reverse
+/>
+
+
+
 	  
-
-<CertificationShowcase />
-
-     
-
-{/* 
-<GlobalProjectNetwork />
- */}
-
+	  
 <ScrollingDataWall />
+	  
+	  
 
-<TechMarquee />
+
+	  
+
+
+	  	   <FutureBanner />
+
+
+
+
+
+{/*
+	  	  <DataDashboard />
+
+     <CertificationShowcase />
+<GlobalProjectNetwork />
+
+*/}
+
     </>
 
   );

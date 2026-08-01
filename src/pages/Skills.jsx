@@ -1,5 +1,12 @@
 import React from "react";
 
+
+import TechMarquee
+from "../components/TechMarquee";
+
+
+
+
 import {
   Database,
   Cloud,
@@ -210,7 +217,6 @@ text-white
 overflow-hidden
 relative
 "
-
 >
 
 
@@ -405,7 +411,6 @@ strokeWidth="2"
 
 
 
-
 {/* Core Node */}
 
 
@@ -519,8 +524,6 @@ Solution Architect
 
 
 </motion.div>
-
-
 
 
 
@@ -754,6 +757,10 @@ key={item}
 
 
 
+{/* Component: TechMarquee */}
+
+
+<TechMarquee />
 
 
 {/* Technology Stack */}
@@ -830,6 +837,10 @@ title="Backend"
 text="Java | Python | API"
 
 />
+
+
+
+
 
 
 

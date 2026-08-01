@@ -24,8 +24,7 @@ button:"View Project",
 
 path:"/projects/data-integration-platform",
 
-image:`${import.meta.env.BASE_URL}images/banner-etl.png`
-
+video:`${import.meta.env.BASE_URL}videos/hero-banner/etl.mp4`
 },
 
 
@@ -40,7 +39,7 @@ button:"View Project",
 
 path:"/projects/data-driven-cms",
 
-image:`${import.meta.env.BASE_URL}images/banner2.png`
+video:`${import.meta.env.BASE_URL}videos/hero-banner/cms.mp4`
 
 },
 
@@ -59,7 +58,7 @@ button:null,
 
 path:"/projects/aem",
 
-image:`${import.meta.env.BASE_URL}images/banner3.png`
+video:`${import.meta.env.BASE_URL}videos/hero-banner/rag.mp4`
 
 }
 
@@ -257,47 +256,45 @@ z-10
 
 
 
+<motion.video
 
+key={slides[index].video}
 
-<motion.img
-
-
-src={slides[index].image}
-
+autoPlay
+muted
+loop
+playsInline
+preload="metadata"
 
 className="
 absolute
 inset-0
 w-full
 h-full
-object-cover
+object-cover object-top
 "
 
-
 initial={{
-
 scale:1
-
 }}
-
 
 animate={{
-
-scale:1.18
-
+scale:1.08
 }}
-
 
 transition={{
-
 duration:8,
-
 ease:"easeOut"
-
 }}
 
+>
 
+<source
+  src={slides[index].video}
+  type="video/mp4"
 />
+
+</motion.video>
 
 
 
