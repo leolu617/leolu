@@ -57,7 +57,7 @@ function Home(){
 
 <FeatureSection
 
-  image={`${import.meta.env.BASE_URL}images/blogs/1461082.jpg`}
+  image={`${import.meta.env.BASE_URL}images/bi.png`}
 
   eyebrow="Data Engineering"
 
@@ -74,7 +74,7 @@ function Home(){
 
 <FeatureSection
 
-  image={`${import.meta.env.BASE_URL}images/blogs/1461082.jpg`}
+  image={`${import.meta.env.BASE_URL}images/8bit.png`}
 
   eyebrow="Data Engineering"
 

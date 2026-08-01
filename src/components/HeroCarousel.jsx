@@ -279,7 +279,7 @@ scale:1
 }}
 
 animate={{
-scale:1.08
+scale:1
 }}
 
 transition={{
