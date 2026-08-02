@@ -66,15 +66,13 @@ w-full
 
   eyebrow="Data Engineering "
 
-  title="Architecting Modern Data Platforms"
+  title="Insights from the Data Power Event"
 
   description="
-  Building scalable enterprise data platforms with
-  cloud infrastructure, ETL pipelines, analytics,
-  and AI-driven solutions.
+ A reflection on the Data Power Event, highlighting key trends, data applications, and the impact of analytics on digital transformation.
   "
   
-  buttonText="View Project"
+  buttonText="View Blogs"
 
     buttonLink="/preparing"
 
@@ -85,17 +83,16 @@ w-full
 
   image={`${import.meta.env.BASE_URL}images/8bit.png`}
 
-  eyebrow="Data Engineering"
+  eyebrow="Tech Insights"
 
-  title="Architecting Modern Data Platforms "
+  title="Modern CMS Architecture and Design Concepts"
 
   description="
-  Building scalable enterprise data platforms with
-  cloud infrastructure, ETL pipelines, analytics,
-  and AI-driven solutions.
+  A conceptual exploration of next-generation CMS solutions,
+  focusing on modular architecture, content flexibility, and seamless integration across digital platforms.
   "
   
-  buttonText="View Project"
+  buttonText="View Blogs"
 
     buttonLink="/preparing"
 

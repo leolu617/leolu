@@ -122,22 +122,22 @@ function FutureBanner() {
           mb-6
           "
         >
-          TECHNOLOGY & INNOVATION
+          BUSINESS X TECHNOLOGY X INNOVATION
         </p>
 
 
 
         <h2
           className="
-          text-5xl
-          md:text-7xl
+          text-3xl
+          md:text-5xl
           font-bold
           text-white
           max-w-5xl
           leading-tight
           "
         >
-          Shape how the future unfolds
+          Unveiling innovative solutions and data-driven applications
         </h2>
 
 
@@ -151,11 +151,44 @@ function FutureBanner() {
           max-w-3xl
           leading-relaxed
           "
-        >
-          Building enterprise data platforms,
-          cloud-native solutions, and AI-powered
-          systems that accelerate digital transformation.
+        >	 
+		 
+
+		 
+		  More details and updates will be unveiled soon.
         </p>
+		
+		
+		
+		
+		<div
+  className="
+  mt-10
+
+  inline-flex
+  items-center
+  justify-center
+
+  px-8
+  py-3
+
+  border
+  border-white/40
+
+  bg-white/10
+  backdrop-blur-md
+
+  text-white
+  text-xl
+  font-semibold
+
+  cursor-default
+  "
+>
+  Coming Soon
+</div>
+		
+		
 
       </div>
 

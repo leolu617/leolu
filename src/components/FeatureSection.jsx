@@ -119,7 +119,7 @@ lg:py-0
   {/* Text */}
   <p
     className="
-    text-sm
+   text-xl
     uppercase
     tracking-[0.25em]
     text-blue-600
@@ -138,7 +138,7 @@ lg:py-0
           <h2
 
             className="
-            text-3xl
+            text-2xl
             font-bold
             text-slate-900
             leading-tight
@@ -149,8 +149,6 @@ lg:py-0
             {title}
 
           </h2>
-
-
 
 
 
