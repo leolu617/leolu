@@ -1,13 +1,19 @@
 import React from "react";
 
 
+
+import { Link } from "react-router-dom";
+
+
 function FeatureSection({
 
   image,
   eyebrow,
   title,
   description,
-  reverse = false
+  reverse = false,
+    buttonText,
+  buttonLink
 
 }) {
 
@@ -16,7 +22,7 @@ function FeatureSection({
 
     <section
       className="
-      py-24
+
       bg-white
       "
     >
@@ -48,7 +54,7 @@ function FeatureSection({
 
           className="
           w-full
-          lg:w-1/2
+          lg:w-1/7
           "
 
         >
@@ -63,7 +69,7 @@ function FeatureSection({
             className="
             w-full
              w-[600px]
-			 h-[300px]
+			 h-[600px]
             object-cover
             "
 
@@ -78,35 +84,52 @@ function FeatureSection({
 
 
         {/* Content */}
+<div
+
+className="
+w-full
+lg:w-5/7
+px-8
+py-12
+lg:px-20
+lg:py-0
+"
+
+>
+
 
         <div
+  className="
+  flex
+  items-center
+  gap-4
+  mb-6
+  "
+>
 
-          className="
-          w-full
-          lg:w-2/5
-          px-8
-          lg:px-20
-          "
+  {/* Blue Line */}
+  <div
+    className="
+    w-1
+    h-8
+    bg-blue-600
+    "
+  />
 
-        >
+  {/* Text */}
+  <p
+    className="
+    text-sm
+    uppercase
+    tracking-[0.25em]
+    text-blue-600
+    font-medium
+    "
+  >
+    {eyebrow}
+  </p>
 
-
-          <p
-
-            className="
-            text-sm
-            uppercase
-            tracking-[0.25em]
-            text-blue-600
-            font-medium
-            mb-6
-            "
-
-          >
-
-            {eyebrow}
-
-          </p>
+</div>
 
 
 
@@ -115,7 +138,7 @@ function FeatureSection({
           <h2
 
             className="
-            text-5xl
+            text-3xl
             font-bold
             text-slate-900
             leading-tight
@@ -146,7 +169,50 @@ function FeatureSection({
 
             {description}
 
+
           </p>
+		  
+		  
+{
+buttonText && (
+
+<Link
+
+to={buttonLink}
+
+className="
+mt-10
+
+inline-flex
+items-center
+justify-center
+
+px-8
+py-3
+
+border
+border-blue-600
+
+text-blue-800
+font-medium
+
+hover:bg-blue-600
+hover:text-white
+hover:shadow-lg
+
+transition-all
+duration-300
+"
+
+>
+
+{buttonText}
+
+</Link>
+
+)
+}
+
 
 
 

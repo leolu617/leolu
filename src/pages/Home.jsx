@@ -1,5 +1,8 @@
 import React from "react";
 
+
+
+
 import HeroCarousel from "../components/HeroCarousel";
 import About from "../components/About";
 import Projects from "../components/Projects";
@@ -50,16 +53,18 @@ function Home(){
 	  
 	  
 	  
-	  
-	  
-	  
-
+<div
+className="
+py-24
+w-full
+"
+>
 
 <FeatureSection
 
   image={`${import.meta.env.BASE_URL}images/bi.png`}
 
-  eyebrow="Data Engineering"
+  eyebrow="Data Engineering "
 
   title="Architecting Modern Data Platforms"
 
@@ -68,6 +73,10 @@ function Home(){
   cloud infrastructure, ETL pipelines, analytics,
   and AI-driven solutions.
   "
+  
+  buttonText="View Project"
+
+    buttonLink="/preparing"
 
 />
 
@@ -78,18 +87,24 @@ function Home(){
 
   eyebrow="Data Engineering"
 
-  title="Architecting Modern Data Platforms"
+  title="Architecting Modern Data Platforms "
 
   description="
   Building scalable enterprise data platforms with
   cloud infrastructure, ETL pipelines, analytics,
   and AI-driven solutions.
   "
+  
+  buttonText="View Project"
+
+    buttonLink="/preparing"
+
+  
 reverse
 />
 
 
-
+     </div>
 	  
 	  
 <ScrollingDataWall />
