@@ -23,8 +23,22 @@ import {
 
 const activities = [
 
+
+
   {
     id: 1,
+    title: "Industry AI Empowerment Workshop Series",
+    description:
+      "Had a great opportunity to attend the events from the Industry AI Empowerment Workshop Series, hosted by the MODA and the III ...",
+    date: "2026.08.04",
+    category: "Event",
+    image: `${import.meta.env.BASE_URL}images/blogs/20260805-ai.png`
+  },
+
+
+
+  {
+    id: 2,
     title: "Entrepreneurial Management: iiLABs’ book discussion event",
     description:
       "Participated in iiLABs’ book discussion event on Entrepreneurial Management, gaining valuable insights into ...",
@@ -32,21 +46,23 @@ const activities = [
     category: "Event",
     image: `${import.meta.env.BASE_URL}images/blogs/20260225-iiLABs.jpg`
   },
-
-
-  {
-    id: 2,
+  
+   {
+    id: 3,
     title: "preparing",
     description:
       "This content is still being prepared and will be available soon.",
-    date: "2026.08",
-    category: "Education",
-    image: `${import.meta.env.BASE_URL}images/blogs/20260730-ai.jpg`
+    date: "2026.06",
+    category: "Blog",
+    image: `${import.meta.env.BASE_URL}images/blogs/1461208.jpg`
   },
 
 
+
+
+
   {
-    id: 3,
+    id: 4,
     title: "preparing",
     description:
       "This content is still being prepared and will be available soon.",
@@ -56,16 +72,7 @@ const activities = [
   },
 
 
-  {
-    id: 4,
-    title: "preparing",
-    description:
-      "This content is still being prepared and will be available soon.",
-    date: "2026.06",
-    category: "Blog",
-    image: `${import.meta.env.BASE_URL}images/blogs/1461208.jpg`
-  },
-
+ 
 
   {
     id: 5,
